@@ -93,7 +93,7 @@ expo-boilerplate/
    - Open in Expo Go, Android/iOS simulator, or web browser.
 
 3. **Edit your app**
-   - Main code is in `src/` (see [Project Structure](#project-structure)).
+   - Main code is in `src/`.
    - Routing is handled by files in `src/routes/`.
 
 ---
