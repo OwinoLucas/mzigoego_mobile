@@ -1,12 +1,13 @@
-# Expo Boilerplate
+# MzigoEgo Mobile App
 
 <p align="center">
-  <b>Modern, scalable, and developer-friendly Expo (React Native) boilerplate with TypeScript, NativeWind, and best practices.</b>
+  <b>Modern, scalable React Native mobile application for MzigoEgo delivery platform with TypeScript, Redux, and NativeWind.</b>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Expo SDK-53-blue" />
   <img src="https://img.shields.io/badge/TypeScript-strict-blue" />
+  <img src="https://img.shields.io/badge/Redux Toolkit-2.0-purple" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
 </p>
 
@@ -14,15 +15,17 @@
 
 ## ✨ Overview
 
-This boilerplate provides a robust foundation for building cross-platform mobile applications using Expo and React Native. It is designed for rapid development, scalability, and maintainability, featuring:
+MzigoEgo Mobile is a comprehensive delivery platform mobile application built with React Native and Expo. It supports multiple user types (customers, riders, and admins) with role-based navigation and features:
 
-- **File-based routing** with `expo-router`
-- **TypeScript** with strict type safety
-- **NativeWind** for Tailwind CSS utility classes in React Native
-- **Custom hooks and utilities** for common patterns
-- **SVG icon system** with automated conversion
-- **Secure storage helpers**
-- **Pre-configured ESLint, Prettier, and Tailwind**
+- **🔐 Authentication System** - Login/Register with JWT tokens and secure storage
+- **👥 Role-Based Navigation** - Separate interfaces for customers, riders, and admins
+- **🎨 MzigoEgo Branding** - Custom orange theme (#FF7010) with branded components
+- **📱 Cross-Platform** - iOS, Android, and Web support via Expo
+- **🏪 Redux State Management** - Centralized state with Redux Toolkit
+- **🌐 API Integration** - Connected to MzigoEgo backend at https://mzigoego.com/api
+- **📍 Location Services** - GPS tracking and mapping capabilities
+- **🔔 Push Notifications** - Real-time delivery updates
+- **💳 Payment Integration** - M-Pesa and other payment gateways
 
 ---
 

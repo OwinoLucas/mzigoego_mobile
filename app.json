@@ -1,22 +1,24 @@
 {
   "expo": {
-    "name": "expo-boilerplate",
-    "slug": "expo-boilerplate",
+    "name": "MzigoEgo",
+    "slug": "mzigoego-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "expoboilerplate",
-    "userInterfaceStyle": "automatic",
+    "scheme": "mzigoego",
+    "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mzigoego.mobile"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FF7010"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.mzigoego.mobile"
     },
     "web": {
       "bundler": "metro",
@@ -36,10 +38,23 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FF7010"
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow MzigoEgo to use your location to find nearby riders and track deliveries."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#FF7010"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

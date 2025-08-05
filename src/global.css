@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* MzigoEgo Theme Variables */
+:root {
+  --primary: #FF7010;
+  --primary-light: #FED7AA;
+  --background: #FFFAF6;
+  --foreground: #171717;
+}
+
+/* Custom component styles */
+.btn-primary {
+  @apply bg-primary-500 text-white rounded-lg px-4 py-3 font-semibold;
+}
+
+.btn-secondary {
+  @apply bg-primary-100 text-primary-700 rounded-lg px-4 py-3 font-semibold;
+}
+
+.input-field {
+  @apply border border-gray-300 rounded-lg px-3 py-3 text-foreground bg-white;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-sm border border-primary-100;
+}
