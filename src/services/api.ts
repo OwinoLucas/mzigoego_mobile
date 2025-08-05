@@ -1,8 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
-
-// API Configuration
-const API_BASE_URL = 'https://mzigoego.com/api';
+import { config } from '../config';
 
 export interface ApiResponse<T = any> {
   success: boolean;
@@ -21,13 +19,13 @@ class ApiService {
   private accessToken: string | null = null;
 
   constructor() {
-    this.baseURL = API_BASE_URL;
+    this.baseURL = config.api.baseUrl;
     this.initializeToken();
   }
 
   private async initializeToken() {
     try {
-      const token = await AsyncStorage.getItem('access_token');
+      const token = await AsyncStorage.getItem(config.auth.tokenKeys.access);
       this.accessToken = token;
     } catch (error) {
       console.error('Failed to load access token:', error);
@@ -36,8 +34,8 @@ class ApiService {
 
   public async setAuthTokens(tokens: AuthTokens) {
     try {
-      await AsyncStorage.setItem('access_token', tokens.access);
-      await AsyncStorage.setItem('refresh_token', tokens.refresh);
+      await AsyncStorage.setItem(config.auth.tokenKeys.access, tokens.access);
+      await AsyncStorage.setItem(config.auth.tokenKeys.refresh, tokens.refresh);
       this.accessToken = tokens.access;
     } catch (error) {
       console.error('Failed to store auth tokens:', error);
@@ -46,7 +44,7 @@ class ApiService {
 
   public async clearAuthTokens() {
     try {
-      await AsyncStorage.multiRemove(['access_token', 'refresh_token']);
+      await AsyncStorage.multiRemove([config.auth.tokenKeys.access, config.auth.tokenKeys.refresh]);
       this.accessToken = null;
     } catch (error) {
       console.error('Failed to clear auth tokens:', error);
@@ -68,7 +66,7 @@ class ApiService {
 
   private async refreshToken(): Promise<boolean> {
     try {
-      const refreshToken = await AsyncStorage.getItem('refresh_token');
+      const refreshToken = await AsyncStorage.getItem(config.auth.tokenKeys.refresh);
       if (!refreshToken) return false;
 
       const response = await fetch(`${this.baseURL}/token/refresh/`, {
@@ -79,7 +77,7 @@ class ApiService {
 
       if (response.ok) {
         const data = await response.json();
-        await AsyncStorage.setItem('access_token', data.access);
+        await AsyncStorage.setItem(config.auth.tokenKeys.access, data.access);
         this.accessToken = data.access;
         return true;
       }
